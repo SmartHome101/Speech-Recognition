@@ -7,7 +7,7 @@ from pathlib import Path
 module_path = str(Path.cwd())
 
 
-URL = 'http://127.0.0.1:8000/predict'
+URL = 'http://sr.techome.systems/predict'
 TEMP_FILE = 'temp.wav'
 
 # os.close(sys.stderr.fileno())
