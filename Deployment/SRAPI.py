@@ -6,9 +6,10 @@ from transformers import Wav2Vec2Processor, AutoConfig, AutoTokenizer, AutoFeatu
 import librosa
 import torch
 import shutil
+from uvicorn import run
 
 
-MODEL_PATH = "../Model/wav2vec-speech-model"
+MODEL_PATH = "./wav2vec-speech-model"
 TEMP_FILE = "temp.wav"
 app = FastAPI()
 
@@ -38,6 +39,6 @@ async def predict(file:  UploadFile):
     
     return result
 
-
-if __name__ == '__main__':
-    uvicorn.run(app, host='127.0.0.1',port=8001)                   
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 9000))
+    run(app, host="0.0.0.0", port=port)               
